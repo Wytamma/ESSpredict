@@ -21,7 +21,7 @@ read.logFile <- function(path_to_log_file, index_col=NULL) {
   return(logFile)
 }
 
-cumESS <- function(logFile, burnin=0.1, sample=1, tidy=TRUE, cores=detectCores()) {
+cumESS <- function(logFile, burnin=0.1, sample=1, tidy=TRUE, cores=detectCores() - 1) {
   # burn in
   if (burnin > 1 ) {
     logFile <- logFile[logFile[,"state"] >= burnin, ]
